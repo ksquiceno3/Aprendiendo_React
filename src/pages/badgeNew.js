@@ -5,7 +5,18 @@ import header from '../images/badge-header.svg'
 import Navbar from '../componentes/Navbar'
 import BadgeForm from '../componentes/badgeForm'
 import Badge from '../componentes/badge'
-class BadgeNew extends React.Component {
+class BadgeNew extends React.Component 
+{
+    state = { form: {}};
+
+    handleChange = e => {
+        this.setState({
+            form: {
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
     render()
     {
         return (
@@ -28,7 +39,7 @@ class BadgeNew extends React.Component {
                         </div>
 
                         <div className="col-6">
-                            <BadgeForm />
+                            <BadgeForm onChange={this.handleChange}/>
                         </div>
                     </div>
                 </div>
