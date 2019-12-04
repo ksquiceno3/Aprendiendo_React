@@ -4,6 +4,8 @@ import './styles/BageNew.css'
 import header from '../images/platziconf-logo.svg'
 import BadgeForm from '../componentes/badgeForm'
 import Badge from '../componentes/badge'
+import api from '../api'
+
 class BadgeNew extends React.Component
 {
     state = {
@@ -12,8 +14,8 @@ class BadgeNew extends React.Component
             lastName: '',
             email: '',
             jobTitle: '',
-            twiter: ''
-        }
+            twiter: '',
+        },
     };
 
     handleChange = e => {
@@ -23,6 +25,18 @@ class BadgeNew extends React.Component
                 [e.target.name]: e.target.value,
             }
         })
+    }
+
+    handleSubmit = async e => {
+      e.preventDefault()
+      this.setState({ loading: false, error: null })
+
+      try {
+        await api.badges.create(this.state.form)
+        this.setState({ loading: false });
+      } catch(error){
+        this.setState({ loading: false, error: error })
+      }
     }
 
     render()
