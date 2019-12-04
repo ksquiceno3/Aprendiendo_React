@@ -74,8 +74,8 @@ class BadgeForm extends React.Component {
                             onChange={this.props.onChange}
                             className="form-control"
                             type="text"
-                            name="twiter"
-                            value={this.props.formValues.twiter}
+                            name="twitter"
+                            value={this.props.formValues.twitter}
                         />
                     </div>
 

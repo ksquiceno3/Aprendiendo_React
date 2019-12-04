@@ -4,11 +4,14 @@ import './styles/BageNew.css'
 import header from '../images/platziconf-logo.svg'
 import BadgeForm from '../componentes/badgeForm'
 import Badge from '../componentes/badge'
+import PageLoading from '../componentes/PageLoading'
 import api from '../api'
 
 class BadgeNew extends React.Component
 {
     state = {
+        loading: false,
+        error: null,
         form: {
             firstName: '',
             lastName: '',
@@ -29,7 +32,7 @@ class BadgeNew extends React.Component
 
     handleSubmit = async e => {
       e.preventDefault()
-      this.setState({ loading: false, error: null })
+      this.setState({ loading: true, error: null })
 
       try {
         await api.badges.create(this.state.form)
@@ -41,6 +44,11 @@ class BadgeNew extends React.Component
 
     render()
     {
+      if (this.state.loading)
+      {
+        return <PageLoading />;
+      }
+
         return (
             <React.Fragment>
                 <div>
@@ -76,4 +84,4 @@ class BadgeNew extends React.Component
     }
 }
 
-export default BadgeNew
+export default BadgeNew;
