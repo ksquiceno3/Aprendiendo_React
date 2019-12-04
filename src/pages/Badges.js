@@ -9,7 +9,7 @@ import PageLoading from '../componentes/PageLoading'
 import api from '../api'
 
 class Badges extends React.Component
-{   
+{
     state = {
         loading: true,
         error: null,
@@ -22,13 +22,13 @@ class Badges extends React.Component
     }
 
     fetchData = async() => {
-        this.setState({loading: true, error: null})
+        this.setState({ loading: true, error: null })
 
         try {
             const data = await api.badges.list();
-            this.setState({loading: false, data: data })
+            this.setState({ loading: false, data: data })
         }catch (error) {
-            this.setState({loading: false, error: error})
+            this.setState({ loading: false, error: error })
         }
     }
 
@@ -38,8 +38,9 @@ class Badges extends React.Component
         }
 
         if (this.state.error){
-            return <PageError />
+            return <PageError error={this.state.error}/>
         }
+
         return (
             <React.Fragment>
                 <div>
@@ -64,7 +65,7 @@ class Badges extends React.Component
                         </div>
                     </div>
                 </div>
-            </React.Fragment>    
+            </React.Fragment>
         )
     }
 }

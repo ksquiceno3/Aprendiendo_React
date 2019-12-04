@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './styles/BageNew.css'
-import header from '../images/badge-header.svg'
+import header from '../images/platziconf-logo.svg'
 import BadgeForm from '../componentes/badgeForm'
 import Badge from '../componentes/badge'
-class BadgeNew extends React.Component 
+class BadgeNew extends React.Component
 {
-    state = { 
+    state = {
         form: {
             firstName: '',
             lastName: '',

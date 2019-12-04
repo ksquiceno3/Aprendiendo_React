@@ -9,4 +9,4 @@ function PageLoading() {
     </div>
 }
 
-export default PageLoading
+export default PageLoading;
